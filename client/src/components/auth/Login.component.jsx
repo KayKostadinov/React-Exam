@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 import Alert from '../layout/Alert.component';
 
-const Login = ({ login, isAuthenticated, setClickable }) => {
+const Login = ({ login, setClickable }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -21,12 +21,6 @@ const Login = ({ login, isAuthenticated, setClickable }) => {
         login(email, password);
     }
 
-    // redirect on login
-    if (isAuthenticated) {
-        return (
-            <Redirect to='/profile' />
-        )
-    }
 
     return (
         <div className="form-container">
@@ -67,11 +61,7 @@ const Login = ({ login, isAuthenticated, setClickable }) => {
 
 Login.propTypes = {
     login: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
-})
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(null, { login })(Login);

@@ -35,8 +35,6 @@ function App() {
           <Navbar />
           <Route exact path="/" component={Landing} />
           <Switch>
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} />
             <Route exact path='/boards' component={Boards} />
             <PrivateRoute exact path='/aim' component={Aim} />
             <PrivateRoute exact path='/profile' component={EditProfile} />

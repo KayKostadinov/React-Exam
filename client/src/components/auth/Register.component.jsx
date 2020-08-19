@@ -83,8 +83,7 @@ const Register = ({ setAlert, register, isAuthenticated, setClickable }) => {
                 <p className='form-tooltip'>Already have an account?
                     <Link to='/' className='link-text' name='login' onClick={e => {
                         e.preventDefault();
-                        setClickable({ slider: true, clicked: e.target.name }
-                        )
+                        setClickable({ slider: true, clicked: e.target.name })
                     }}> Login</Link>
                 </p>
                 <Alert />

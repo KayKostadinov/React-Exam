@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
 
-const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
 
 
@@ -41,7 +41,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         e.preventDefault();
         logout();
         return (
-            <Redirect to='/login' />
+            <Redirect to='/' />
         );
     }
 

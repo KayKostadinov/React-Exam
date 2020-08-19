@@ -1,18 +1,38 @@
-# Social network project AimBoard
+# AimBoard (social network)
+Link to deployed project: http://aimboard.herokuapp.com
 
 ## Starting the project locally:
 
 **install dependencies:** npm i && cd client npm i
 
-**start the project:** in the root directory run command 'npm run dev'
+**start the project:** in the root project directory run command 'npm run dev'.
 The local environment runs the back and front end simultaneously using concurrently with a proxy between them.
 The website can be accessed @ http://localhost:3000
+Both server and client refresh on save.
 
 ------------------------------------
 # Client Documentation
 
 Global state is managed by Redux. Component-level state is implemented with hooks.
 ## Components
+
+#### App
+Root component.
+Handles: 
+    
+    local storage auth token
+    Component routing
+    Private/ public routing
+    Passes down global state
+
+
+### Landing & /auth
+**Landing renders Login and  Register as a single page.**
+#### Landing
+#### Login
+#### Register
+
+
 
 ## Redux
 **global state init:** store.js and passed down the top-level component in App.js

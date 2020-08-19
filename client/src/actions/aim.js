@@ -84,15 +84,14 @@ export const updateAim = (formData, aimId) => async dispatch => {
         })
 
     } catch (err) {
-        console.log(err)
-        // const errors = err?.response?.data?.errors;
-        // if (errors) {
-        //     errors.forEach(x => dispatch(setAlert(x.msg, 'error')))
-        // }
-        // dispatch({
-        //     type: AIM_ERR,
-        //     payload: { msg: err.response.statusText, status: err.response.status }
-        // })
+        const errors = err?.response?.data?.errors;
+        if (errors) {
+            errors.forEach(x => dispatch(setAlert(x.msg, 'error')))
+        }
+        dispatch({
+            type: AIM_ERR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
     }
 }
 

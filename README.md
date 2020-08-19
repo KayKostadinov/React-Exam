@@ -9,16 +9,17 @@ The local environment runs the back and front end simultaneously using concurren
 The website can be accessed @ http://localhost:3000
 
 ------------------------------------
-## Client Documentation
+# Client Documentation
 
 Global state is managed by Redux. Component-level state is implemented with hooks.
+## Components
 
-### Redux
-**global state init:** store.js and passed down in App.js
-#### reducers
-/reducers
+## Redux
+**global state init:** store.js and passed down the top-level component in App.js
 
-**combine reducers** index.js
+#### /reducers
+
+**combine reducers in index.js**
 
 **auth**
 ```
@@ -29,6 +30,8 @@ const initialState = {
     user: null
 }
 ```
+handles actions:
+
     REG_SUCCESS,
     REG_FAIL,
     AUTH_SUCCESS,
@@ -38,13 +41,16 @@ const initialState = {
     LOGOUT,
 
 **aim**
-```const initialState = {
+```
+const initialState = {
     aim: null,
     aims: [],
     loading: true,
     error: {}
 }
 ```
+handles actions:
+
     GET_AIM, 
     AIM_ERR, 
     CLEAR_AIM, 
@@ -52,8 +58,100 @@ const initialState = {
     UPDATE_AIM, 
     CREATE_AIM 
 
+**alert**
+```
+const initialState = []
+```
+handles actions:
+
+    SET_ALERT, REMOVE_ALERT
+
+**post**
+```
+const initialState = {
+    posts: [],
+    post: null,
+    loading: true,
+    error: {}
+}
+```
+handles actions:
+
+    GET_POSTS, 
+    POST_ERR, 
+    UPDATE_LIKES, 
+    DELETE_POST, 
+    ADD_POST, 
+    ADD_COMMENT
+
+**profile**
+```
+const initialState = {
+    profile: null,
+    profiles: [],
+    loading: true,
+    error: {}
+}
+```
+handles actions:
+
+    GET_PROFILE, 
+    PROFILE_ERR, 
+    CLEAR_PROFILE, 
+    DELETE_ACC, 
+    UPDATE_PROFILE, 
+    GET_PROFILES
+
+#### /actions
+
+
+**exported actions types in types.js**
+
+_Each action calls to the corresponding api route and feeds the server response to the reducer_
+
+##### exported action functions:
+
+**aim**
+
+    getAims
+    getAim(id)
+    createAim(formData)
+    updateAim(formData, id)
+    deleteAim(id)
+
+**alert**
+
+    setAlert(msg, alertType)
+
+**auth**
+
+    register({ name, email, password })
+    loadUser
+    login(email, password)
+    logout
+
+**post**
+
+    getPosts
+    addPost(formData)
+    deletePost(id)
+    addLike(id)
+    removeLike(id)
+    addComment(commentForm, id)
+
+**profile**
+
+    getMyProfile
+    getAllProfiles
+    getProfileById(id)
+    createProfile(formData, history, edit = false)
+    deleteProfile
+
+
+
+
 ------------------------------------
-## API Documentation
+# API Documentation
 All responses return their data in JSON
 
 ### aim

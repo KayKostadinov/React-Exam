@@ -1,0 +1,58 @@
+
+.landing {
+    background-image: 
+        linear-gradient(rgba($p-lighter, 1), rgba($orange, 0.7)),
+        url('../img/arrows.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    transition: all .5s ease-in-out;
+    display: grid;
+
+}
+
+
+.lan-card {
+    width: 100%;
+    height: 30%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h1 {
+        text-align: center;
+        width: 100%;
+    }
+    .message{
+        font-size: 18px;
+        padding: 2em 0 1em 0;
+        text-align: center;
+        font-weight: 400;
+    }
+}
+
+.sidebar {
+    position: absolute;
+    height: 100%;
+    padding-top: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    transform: translateY(-150%);
+    transition: all .5s ease-in-out;
+    opacity: 0;
+    backdrop-filter: blur(50px);
+    background-color: rgba($color: $p-lighter, $alpha: .2);
+    z-index: 2;
+}
+
+.slide {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+

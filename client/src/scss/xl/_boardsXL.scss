@@ -1,0 +1,9 @@
+.boards-page {
+    background-color: $p-light;
+    padding-top: 5em;
+
+    .create-post-form, .boards-container{
+        justify-self: center;
+        max-width: 500px;
+    }
+}

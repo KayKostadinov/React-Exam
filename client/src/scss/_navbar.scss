@@ -1,0 +1,30 @@
+.navbar {
+    @include flexCenter(space-around);
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+    background: $p-lighter;
+    border-bottom: 1px solid rgba($color: $gray, $alpha: 0.4);
+
+    .navigation {
+        @include flexCenter(space-between);
+        width: 100%;
+        .nav {
+            margin: 0 .5em;
+            font-weight: 700;
+            font-size: 25px;
+            color: $orange;
+        }   
+        .btn {
+            background: transparent;
+        }
+    }
+
+    .two {
+        @include flexCenter(space-around);
+    }
+}
+
+.hide-sm{
+    display: none;
+}

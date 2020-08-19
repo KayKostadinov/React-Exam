@@ -1,0 +1,18 @@
+@mixin flexCenter ($spacing:center, $direction:row, $vertical:center ){
+    display: flex;
+    align-items: $vertical;
+    align-content: center;
+
+    justify-content: $spacing;
+    flex-direction: $direction;
+}
+
+@mixin roundedBorders($amount: 20px){
+    border: none;
+    border-radius: $amount;
+    overflow: hidden;
+}
+
+@mixin focusShadow {
+    box-shadow: black;
+}

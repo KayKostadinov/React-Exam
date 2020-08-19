@@ -1,0 +1,50 @@
+.navbar {
+    width: 100vw;
+    @include flexCenter(space-between);
+    position: absolute;
+    top: 0px;
+    padding: .4rem 2rem;
+    background: transparent;
+    z-index: 3;
+    border: none;
+
+    .navigation{
+        width: fit-content;
+        @include flexCenter(space-around);
+        .btn {
+            padding: .2em .5em;
+            border-radius: 0;
+            border-bottom: 3px solid rgba($color: #000000, $alpha: 0);
+            transition: all .3s ease-in-out;
+            &:hover {
+                border-bottom: 3px solid $teal;
+                h3{
+                    color: $orange;
+                }
+            }
+        }
+        .nav {
+            font-weight: 700;
+            h3 {
+                font-size: large;
+                color: $darker;
+            }
+        }
+    
+        i {
+            display: none;
+        }
+    }
+
+    .logo {
+        a {
+            color: $teal;
+        }
+    }
+
+    
+}
+
+.hide-sm{
+    display: block;
+}

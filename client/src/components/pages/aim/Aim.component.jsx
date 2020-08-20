@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import { getMyProfile } from '../../../actions/profile';
 import { getPosts } from '../../../actions/post';
 import { getAims } from '../../../actions/aim';
-import ProfileSetup from '../aim/ProfileSetup.component';
+import ProfileSetup from '../profile/ProfileSetup.component';
 import AimTree from './AimTree.component';
 import AimForm from './AimForm.component';
 import CreatePost from '../boards/CreatePost.component';
 import Posts from '../boards/Posts.component';
 
 
-const Aim = ({ getMyProfile, getAims, getPosts, getAim, post: { posts, loading: postLoading }, auth: { isAuthenticated, user }, profile: { profile, loading }, aim: { aims, loading: loadAim } }) => {
+const Aim = ({ getMyProfile, getAims, getPosts, post: { posts, loading: postLoading }, auth: { isAuthenticated, user }, profile: { profile, loading }, aim: { aims, loading: loadAim } }) => {
     useEffect(() => {
         getMyProfile();
         getAims();

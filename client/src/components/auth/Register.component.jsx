@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
+import { setAlert } from '../../actions/alert';
 import Alert from '../layout/Alert.component';
 
 

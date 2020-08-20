@@ -14,9 +14,12 @@ Both server and client refresh on save.
 # Client Documentation
 
 Global state is managed by Redux. Component-level state is implemented with hooks.
+## ./utils
+Sets headers depending on whether there's a token. 
+
 ## Components
 
-#### App
+### App
 Root component.
 Handles: 
     
@@ -25,11 +28,24 @@ Handles:
     Private/ public routing
     Passes down global state
 
+### Alert component
+Uses global alerts state. Displays only when the state.alert !== null && alerts.length > 0.
+
+maps over the alerts and displays each message. Styling is dynamically generated based on the alertType.
+
+### Navbar component
+Takes in auth from state and logout from actions.
+
+Conditionally renders publicBtns or profileBtns depending on isAuthenticated.
+
+    handleLogout(e) 
+        calls logout()
+        redirects to '/'
 
 ### Landing & /auth
 **Landing renders Login and  Register as a single page.**
-#### Landing
-Takes in isAuthenticated from state.auth
+#### Landing component
+Takes in isAuthenticated from state.auth.
 Redirects to /aim if user is authenticated.
 
 Extracted methods:
@@ -40,8 +56,10 @@ Extracted methods:
         controls conditional rendering of the card
 
     
-#### Login
+#### Login component
 Takes in login from actions and setClickable from Landing.
+
+On error the Alert component is displayed.
 
 The form is being controlled by:
     
@@ -50,9 +68,56 @@ The form is being controlled by:
     onSubmit(e) calls login(email, password)
     setClickable() switches between login and register
 
-#### Register
+#### Register component
+Takes in login, setAlert from actions and setClickable from Landing.
+
+On error the Alert component is displayed.
+
+The form is being controlled by:
+    
+    formData state,
+    onChange(e) maps any changes to state
+    onSubmit(e) 
+        checks if passwords match:
+        calls register(name, email, password)
+        else calls setAlert(msg, type)
+    setClickable() switches between login and register
 
 
+### ./pages
+#### aim
+##### Aim component
+Top level component for this page.
+
+On render useEffect runs with:
+
+    getMyProfile();
+    getAims();
+    getPosts();
+
+Additional useEffect dependencies: loadAim, loading, postLoading.
+
+---
+This component renders **ProfileSetup, AimTree, AimForm, CreatePost, Posts**
+
+---
+State: 
+    
+    edit
+        conditional rendering of AimForm and passes down props information for the selected item
+    createPost
+        conditional rendering of CreatePost and passes down props information for the selected item
+    postData
+    
+
+#### boards
+#### profile
+#### search
+**Not fully implemented**
+
+#### routing
+##### PrivateRoute component
+    Components wrapped in <PrivateRoute> tag are rerouted to '/' if user is not authenticated
 
 ## Redux
 **global state init:** store.js and passed down the top-level component in App.js

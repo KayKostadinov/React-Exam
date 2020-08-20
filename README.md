@@ -29,7 +29,27 @@ Handles:
 ### Landing & /auth
 **Landing renders Login and  Register as a single page.**
 #### Landing
+Takes in isAuthenticated from state.auth
+Redirects to /aim if user is authenticated.
+
+Extracted methods:
+
+    slideIn()
+        controls the Login and Register card classes to trigger animation and the page css grid settings
+    handleClick(e)
+        controls conditional rendering of the card
+
+    
 #### Login
+Takes in login from actions and setClickable from Landing.
+
+The form is being controlled by:
+    
+    formData state,
+    onChange(e) maps any changes to state
+    onSubmit(e) calls login(email, password)
+    setClickable() switches between login and register
+
 #### Register
 
 

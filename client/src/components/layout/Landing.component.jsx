@@ -5,13 +5,7 @@ import Register from '../auth/Register.component';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-
-// implement single page login and register
-// keep a shared state between Landing and the other two components in the App comp
-
 const Landing = ({ isAuthenticated }) => {
-
-
 
     const [clickable, setClickable] = useState({ slider: false, clicked: '' });
     const [sidebarClass, setSidebarClass] = useState('sidebar');
